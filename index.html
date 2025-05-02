@@ -1,0 +1,81 @@
+ind<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oráculo Bilionário</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: #1b1b1b;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 0 15px #00ff88;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    #money {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      color: #00ff88;
+    }
+    .btn {
+      padding: 1rem 2rem;
+      background-color: #00ff88;
+      color: #111;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #00cc6a;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ative o Oráculo Bilionário</h1>
+    <p>Descubra quanto você pode lucrar agora...</p>
+    <div id="money">R$ 0,00</div>
+    <button class="btn" onclick="startOraculo()">Ativar</button>
+    <button id="btnSacar" class="btn hidden" onclick="window.location.href='https://seulink.com'">Sacar agora</button>
+  </div>
+
+  <script>
+    let valor = 0;
+    let intervalo;
+
+    function formatar(valor) {
+      return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function startOraculo() {
+      document.querySelector(".btn").disabled = true;
+      intervalo = setInterval(() => {
+        valor += Math.floor(Math.random() * 50) + 20;
+        document.getElementById("money").innerText = formatar(valor);
+        if (valor >= 500) {
+          clearInterval(intervalo);
+          document.getElementById("money").innerText = 'R$ 500,00';
+          document.getElementById("btnSacar").classList.remove("hidden");
+        }
+      }, 300);
+    }
+  </script>
+</body>
+</html>ex.html
