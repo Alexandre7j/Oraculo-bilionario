@@ -1,4 +1,4 @@
-ind<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -78,4 +78,87 @@ ind<!DOCTYPE html>
     }
   </script>
 </body>
-</html>ex.html
+</html>
+1
+
+22:22
+
+https://alexandre7j.github.io/Oraculo-bilionario/
+1
+
+22:49
+
+DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oráculo Bilionário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #111;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px red;
+    }
+    button {
+      background-color: red;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Descubra quanto o Oráculo Bilionário revela para você...</h1>
+    <p id="mensagem">Clique no botão abaixo para começar!</p>
+    <button id="botao">Começar</button>
+  </div>
+
+  <script>
+    const mensagens = [
+      "Você ganhou R$20!",
+      "Mais R$50 para sua conta...",
+      "Uau! R$80 ganhos!",
+      "Mais R$150... tá ficando bom!",
+      "Última rodada... prepare-se!",
+      "Parabéns! Você ganhou R$500!"
+    ];
+
+    const botao = document.getElementById("botao");
+    const mensagem = document.getElementById("mensagem");
+    let etapa = 0;
+
+    botao.addEventListener("click", () => {
+      if (etapa < mensagens.length - 1) {
+        mensagem.textContent = mensagens[etapa];
+        etapa++;
+        botao.textContent = "Continuar";
+      } else {
+        mensagem.textContent = mensagens[etapa];
+        botao.textContent = "Resgatar Agora";
+        botao.onclick = () => {
+          window.location.href = "https://seulink.com"; // depois você coloca o link real aqui
+        };
+      }
+    });
+  </script>
+</body>
+</html>
